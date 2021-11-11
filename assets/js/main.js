@@ -29,7 +29,7 @@ function linkAction() {
 
 navLink.forEach((n) => n.addEventListener("click", linkAction));
 /*==================== ACCORDION SKILLS ====================*/
-const skillsContent = document.getElementsByClassName("skills__content"),
+const skillsContent = document.querySelectorAll(".skills__content"),
   skillsHeader = document.querySelectorAll(".skills__header");
 
 function toggleSkills() {
@@ -43,9 +43,12 @@ function toggleSkills() {
   }
 }
 
+
+
 skillsHeader.forEach((el) => {
   el.addEventListener("click", toggleSkills);
 });
+
 
 /*==================== QUALIFICATION TABS ====================*/
 const tabs = document.querySelectorAll("[data-target]"),
@@ -67,63 +70,29 @@ tabs.forEach((tab) => {
   });
 });
 
-/*==================== EXPERIMENTS MODAL ====================*/
-const modalViews = document.querySelectorAll(".general__modal"),
-  modalBtns = document.querySelectorAll(".modal__button"),
-  modalCloses = document.querySelectorAll(".general__modal-close");
-
-let modal = function (modalClick) {
-  document.getElementById(modalClick).classList.add("active-modal");
-  //modalViews[modalClick].classList.add("active-modal");
-};
-
-modalBtns.forEach((modalBtn, i) => {
-  modalBtn.addEventListener("click", (event) => {
-    const targetID = event.target.dataset.targetModal;
-    modal(targetID);
-  });
-});
-
-modalCloses.forEach((modalClose) => {
-  modalClose.addEventListener("click", () => {
-    modalViews.forEach((modalView) => {
-      modalView.classList.remove("active-modal");
-    });
-  });
-});
-
-window.addEventListener("click", (event) => {
-  if (
-    !event.target.matches(".modal__button") &&
-    !event.target.parentNode.matches(".modal__button")
-  ) {
-    modalViews.forEach((modalView) => {
-      modalView.classList.remove("active-modal");
-    });
-  }
-});
 
 /*==================== PORTFOLIO SWIPER  ====================*/
 let swiper = new Swiper(".portfolio__container", {
-  cssMode: true,
+  cssMode: false,
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
+  loop: true,
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
   },
 });
+swiper.mousewheel.disable();
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll("section[id]");
 const scrollWrapper = document.querySelector(".scroll__snap-wrapper");
-const scrollUpBtn = document.querySelector(".scroll-to-top");
+const scrollUpBtns = document.querySelectorAll(".scroll-to-top");
 
 function scrollActive() {
   const scrollY = scrollWrapper.scrollTop;
-
   sections.forEach((current) => {
     const sectionHeight = current.offsetHeight;
     const sectionTop = current.offsetTop - 50;
@@ -142,22 +111,40 @@ function scrollActive() {
 }
 scrollWrapper.addEventListener("scroll", scrollActive);
 
-scrollUpBtn.addEventListener("click", () => (scrollWrapper.scrollTop = 0));
+scrollUpBtns.forEach((btn) =>
+  btn.addEventListener("click", () => (scrollWrapper.scrollTop = 0))
+);
 
 /*==================== CHANGE BACKGROUND HEADER ====================*/
 function scrollHeader() {
+  const scrollY = scrollWrapper.scrollTop;
   const nav = document.getElementById("header");
-  if (this.scrollY >= 80) nav.classList.add("scroll-header");
+  if (scrollY >= 80) nav.classList.add("scroll-header");
   else nav.classList.remove("scroll-header");
 }
-window.addEventListener("scroll", scrollHeader);
+scrollWrapper.addEventListener("scroll", scrollHeader);
 /*==================== SHOW SCROLL UP ====================*/
 function scrollUp() {
+  const scrollY = scrollWrapper.scrollTop;
   const scrollUp = document.getElementById("scroll-up");
-  if (this.scrollY >= 560) scrollUp.classList.add("show-scroll");
+  if (scrollY >= 560) scrollUp.classList.add("show-scroll");
   else scrollUp.classList.remove("show-scroll");
 }
-window.addEventListener("scroll", scrollUp);
+scrollWrapper.addEventListener("scroll", scrollUp);
+/*==================== DARK LIGHT THEME ====================*/
+function scrollDown() {
+  const height = document.querySelector(".scroll__snap-wrapper").scrollHeight;
+  const pos = document.querySelector(".scroll__snap-wrapper").scrollTop;
+  const scroller = document.querySelector(".home__scroll");
+
+  if (height - pos < window.innerHeight * 1.2) {
+    scroller.classList.add("hide");
+  } else {
+    scroller.classList.remove("hide");
+  }
+}
+
+scrollWrapper.addEventListener("scroll", scrollDown);
 /*==================== DARK LIGHT THEME ====================*/
 const themeButton = document.getElementById("theme-button");
 const darkTheme = "dark-theme";
@@ -199,4 +186,42 @@ const nameButton = document.querySelector(".home__name-toggler"),
   namePlaceholders = document.querySelectorAll(".home__name-placeholder");
 nameButton.addEventListener("mouseover", () => {
   namePlaceholders.forEach((name) => name.classList.toggle("name-toggled"));
+});
+
+
+/*==================== EXPERIMENTS MODAL ====================*/
+const modalViews = document.querySelectorAll(".general__modal"),
+  modalBtns = document.querySelectorAll(".modal__button"),
+  modalCloses = document.querySelectorAll(".general__modal-close");
+
+let modal = function (modalClick) {
+  document.getElementById(modalClick).classList.add("active-modal");
+  //modalViews[modalClick].classList.add("active-modal");
+};
+
+modalBtns.forEach((modalBtn, i) => {
+  modalBtn.addEventListener("click", (event) => {
+    const targetID = event.target.dataset.targetModal;
+    modal(targetID);
+    console.log('fire')
+  });
+});
+
+modalCloses.forEach((modalClose) => {
+  modalClose.addEventListener("click", () => {
+    modalViews.forEach((modalView) => {
+      modalView.classList.remove("active-modal");
+    });
+  });
+});
+
+window.addEventListener("click", (event) => {
+  if (
+    !event.target.matches(".modal__button") &&
+    !event.target.parentNode.matches(".modal__button")
+  ) {
+    modalViews.forEach((modalView) => {
+      modalView.classList.remove("active-modal");
+    });
+  }
 });

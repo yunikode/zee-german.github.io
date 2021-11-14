@@ -167,6 +167,18 @@ section {
   margin-bottom: var(--mb-1);
 }
 
+.spacer--buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.spacer--buttons > .button {
+  width: fit-content;
+  margin: 0.5rem;
+}
+
 /*==================== REUSABLE CSS CLASSES ====================*/
 .center__wrapper {
   display: block;
@@ -775,7 +787,7 @@ section {
   background-position: center;
   background-repeat: no-repeat;
   height: 100%;
-  width: 100%;
+  width: 90%;
 }
 
 .experiments__img-2 {
@@ -784,7 +796,7 @@ section {
   background-position: center;
   background-repeat: no-repeat;
   height: 100%;
-  width: 100%;
+  width: 90%;
 }
 
 .experiments__img-3 {
@@ -793,7 +805,7 @@ section {
   background-position: center;
   background-repeat: no-repeat;
   height: 100%;
-  width: 100%;
+  width: 90%;
 }
 
 .modal__button {
@@ -837,7 +849,7 @@ section {
   position: relative;
   background-color: var(--container-color);
   text-align: center;
-  padding: 3rem 2rem 2rem;
+  padding: 1rem;
   border-radius: 1rem 1rem 0 0;
   transition: all 0.3s;
   transform: translateY(10%);
@@ -874,6 +886,18 @@ section {
   color: var(--first-color);
   margin-right: var(--mb-0-25);
 }
+
+.general__modal-content > .container--flex {
+  max-height: 50vh;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.general__modal-content > .container--flex::-webkit-scrollbar {
+  position: absolute;
+  right: -1rem;
+}
+
 
 /* Active Modal */
 .active-modal {
@@ -1189,10 +1213,15 @@ section {
     margin: auto;
     width: 90%;
     border-radius: 1.25rem;
+    padding: 3rem 2rem 2rem;
   }
 
   .portfolio__data > span {
     text-align: center;
+  }
+
+  .spacer--buttons {
+    flex-direction: row;
   }
 }
 
@@ -1263,7 +1292,10 @@ section {
   }
 
 
-
+  .general__modal-content > .container--flex {
+    
+    padding: unset;
+  }
 
 
   .about__container {

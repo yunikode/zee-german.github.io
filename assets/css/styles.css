@@ -399,6 +399,35 @@ section {
   display: block;
 }
 
+.tooltip {
+  cursor: pointer;
+  position: relative;
+}
+
+.tooltip::before {
+  content: attr(data-text);
+  position: absolute;
+
+  font-size: var(--normal-font-size);
+  font-family: var(--button-font);
+  transform: translateY(-50%);
+
+  margin-left: 15px;
+left: -100%;
+  width: 200px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #000;
+  color: #fff;
+  text-align: center;
+
+  display: none;
+}
+
+.tooltip:hover::before {
+  display: block;
+}
+
 .home__img {
   background: url("../img/modern_professional.svg");
   background-size: contain;
@@ -628,7 +657,7 @@ section {
 
 .skills__list {
   gap: 1.5rem;
-  padding-left: 2.7rem;
+  padding-left: 0;
 }
 
 .skills__data {
@@ -641,8 +670,36 @@ section {
   font-size: var(--normal-font-size);
   justify-content: space-evenly;
   align-items: center;
+  transition: 0.3s;
 }
 
+.skills__data-special::before {
+  content: '!';
+  position: absolute;
+  right: 0.25rem;
+  font-size: 1rem;
+  bottom: 0.25rem;
+  opacity: 0.7;
+  color: var(--first-color);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  
+  50% {
+    opacity: 0;
+    font-size: 2rem;
+  }
+
+  100% {
+    opacity: 0;
+    font-size: 2rem;
+  }
+}
+
+.skills__data-special:hover {
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+}
 
 
 .skills__name {
@@ -790,7 +847,7 @@ section {
   width: 90%;
 }
 
-.experiments__img-2 {
+.experiments__img-3 {
   background: url('../img/exp-2.svg');
   background-size: contain;
   background-position: center;
@@ -799,7 +856,7 @@ section {
   width: 90%;
 }
 
-.experiments__img-3 {
+.experiments__img-2 {
   background: url('../img/exp-3.svg');
   background-size: contain;
   background-position: center;
@@ -888,16 +945,18 @@ section {
 }
 
 .general__modal-content > .container--flex {
-  max-height: 50vh;
+  max-height: 60vh;
   overflow-y: auto;
   padding: 1rem;
 }
 
-.general__modal-content > .container--flex::-webkit-scrollbar {
-  position: absolute;
-  right: -1rem;
+.general__modal-content > .container--flex a {
+  text-decoration: underline;
 }
 
+.general__modal-content > .container--flex a.button {
+  text-decoration: none;
+}
 
 /* Active Modal */
 .active-modal {
@@ -1222,6 +1281,11 @@ section {
 
   .spacer--buttons {
     flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .tooltip::before {
+    left: unset;
   }
 }
 

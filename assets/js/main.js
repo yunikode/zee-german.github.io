@@ -203,7 +203,6 @@ modalBtns.forEach((modalBtn, i) => {
   modalBtn.addEventListener("click", (event) => {
     const targetID = event.target.dataset.targetModal;
     modal(targetID);
-    console.log('fire')
   });
 });
 

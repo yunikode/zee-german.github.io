@@ -472,7 +472,7 @@ left: -100%;
   }
 
   50% {
-    transform: translateY(20px);
+    transform: translateY(10px);
   }
 
   to {
@@ -1286,6 +1286,14 @@ left: -100%;
 
   .tooltip::before {
     left: unset;
+  }
+
+  .scrollup {
+    right: 2rem;
+  }
+
+  .scrollup.show-scroll {
+    bottom: 2rem;
   }
 }
 

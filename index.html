@@ -177,7 +177,7 @@
                                     <h3 class="skills__name">JS Frameworks</h3>
                                     <span class="skills__desc">React, React Native, Gatsby</span>
                                 </div>
-                                <div class="skills__data tooltip" data-text="Built from scratch to enable multiple writing systems on the same page"
+                                <div class="skills__data tooltip" data-text="Built from scratch to enable multiple writing systems in the same component"
                               >
                                     <h3 class="skills__name">Internationalization</h3>
                                     <span class="skills__desc">API Developed in React</span>
@@ -447,12 +447,15 @@
                     <div class="general__modal-content">
                         <h4 class="general__modal-title">mein ms-life</h4>
                         <i class="uil uil-times general__modal-close"></i>
-                        <div class="general__modal-desc">First project I became the lead developer of after the relaunch
+                        <div class="general__modal-desc">I became the lead developer after the relaunch
                             of the page.<br><br>During this time I refactored the application to a microfrontend
                             architecture to accomodate the feature requests that came after the relaunch.</div>
-                        <a href="https://mein.ms-life.de/" target="_blank"
-                            class="button button--small button--flex">Live here<i class="uil uil-link button__icon"></i>
-                        </a>
+                            <div class="spacer--buttons">
+
+                                <a href="https://mein.ms-life.de/" target="_blank"
+                                    class="button button--small button--flex">Live here<i class="uil uil-link button__icon"></i>
+                                </a>
+                            </div>
                         <div class="container--flex mx-1">
                             <div>
                                 <span class="general__modal-subtitle">Tech Stack</span>
@@ -502,9 +505,11 @@
                         <i class="uil uil-times general__modal-close"></i>
                         <div class="general__modal-desc">I was in charge of a major redesign and implementing services
                             from other partners.</div>
+                        <div class="spacer--buttons">
                         <a href="https://mein.freestyle.de/content/" target="_blank"
                             class="button button--small button--flex">Live here<i
                                 class="uil uil-link button__icon"></i></a>
+                            </div>
                         <div class="container--flex mx-1">
                             <div>
                                 <span class="general__modal-subtitle">Tech Stack</span>
@@ -555,9 +560,12 @@
                         <div class="general__modal-desc">My biggest job in this project was to implement the API between
                             Google Assistant and our backend.<br><br>Another job was to develop a strategy to ensure
                             that the application keeps track of contexts.</div>
-                        <a href="https://www.sprechender-beipackzettel.de/" target="_blank"
-                            class="button button--small button--flex">Read more here<i
-                                class="uil uil-link button__icon"></i></a>
+                            <div class="spacer--buttons">
+
+                                <a href="https://www.sprechender-beipackzettel.de/" target="_blank"
+                                    class="button button--small button--flex">Read more here<i
+                                        class="uil uil-link button__icon"></i></a>
+                            </div>
                         <div class="container--flex mx-1">
                             <div>
                                 <span class="general__modal-subtitle">Tech Stack</span>
@@ -691,7 +699,7 @@
                                                 href="https://webpack.js.org/concepts/module-federation/"
                                                 target="_blank">Module Federation</a> to mount a remote SolidJS
                                             component into a SolidJS host app.<br><br>My motivation is finding a way to
-                                            update an application without redeployment.</div>
+                                            update an application without redeployment of the base app.</div>
 
                                         <div class="spacer--buttons">
                                             <a href="https://github.com/zee-german/mfe-host-solid" target="_blank"
@@ -757,15 +765,16 @@
 
                                 <div class="container--flex">
                                     <div class="grid">
-                                        <div class="general__modal-desc">In which a play with different hydration and
-                                            streaming frameworks to further page performance and load times.</div>
+                                        <div class="general__modal-desc">Where I play with different hydration strategies and
+                                            streaming frameworks to further page performance and load times.<br><br>The following sample is a astro and SolidJS demo.</div>
 
+                    
                                         <div class="spacer--buttons">
-                                            <a href="https://github.com/zee-german/next-keystone-blog" target="_blank"
+                                            <a href="https://github.com/zee-german/astro-solid" target="_blank"
                                                 class="button button--small button--flex">Code here<i
                                                     class="uil uil-link button__icon"></i>
                                             </a>
-                                            <a href="https://zee-german.github.io/next-keystone-blog/" target="_blank"
+                                            <a href="https://zee-german.github.io/astro-solid/" target="_blank"
                                                 class="button button--small button--flex">Live here<i
                                                     class="uil uil-link button__icon"></i>
                                             </a>
@@ -779,12 +788,16 @@
                                             </li>
                                             <li class="general__modal-experiment">
                                                 <i class="uil uil-check-circle general__modal-icon"></i>
+                                                <p><b>astro.build + headless WP/graphQL</b> - Static Site Generation with hydration</p>
+                                            </li>
+                                            <li class="general__modal-experiment">
+                                                <i class="uil uil-check-circle general__modal-icon"></i>
                                                 <p><b>MarkoJS</b> - Streaming components to the client after SSR</p>
                                             </li>
                                             <li class="general__modal-experiment">
                                                 <i class="uil uil-check-circle general__modal-icon"></i>
                                                 <p><b>Marko + Webpack</b> - Maybe Marko components can be module
-                                                    federated as well, planning stage</p>
+                                                    federated as well, brainstorming stage</p>
                                             </li>
 
                                         </ul>
@@ -856,7 +869,7 @@
                             <a href="#portfolio" class="footer__link">Portfolio</a>
                         </li>
                         <li>
-                            <a href="#contact" class="footer__link">Contact</a>
+                            <a href="#experiments" class="footer__link">Experiments</a>
                         </li>
                     </ul>
 

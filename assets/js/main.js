@@ -186,6 +186,7 @@ const nameButton = document.querySelector(".home__name-toggler"),
   namePlaceholders = document.querySelectorAll(".home__name-placeholder");
 nameButton.addEventListener("mouseover", () => {
   namePlaceholders.forEach((name) => name.classList.toggle("name-toggled"));
+  namePlaceholders[0].classList.contains('name-toggled') ? document.querySelector('title').innerText = 'fiona - homepage' : document.querySelector('title').innerText = 'franz - homepage'
 });
 
 
